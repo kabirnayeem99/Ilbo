@@ -4,15 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.with
 import io.github.kabirnayeem99.ilbo.R
 import io.github.kabirnayeem99.ilbo.models.Article
-import io.github.kabirnayeem99.ilbo.utils.AppGlideModule
-import kotlinx.android.synthetic.main.*
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 
@@ -20,11 +19,11 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     lateinit var context: Context
 
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivArticleImage = itemView.ivArticleImage
-        val tvSource = itemView.tvSource
-        val tvTitle = itemView.tvTitle
-        val tvDescription = itemView.tvDescription
-        val tvPublishedAt = itemView.tvPublishedAt
+        val ivArticleImage: ImageView = itemView.ivArticleImage
+        val tvSource: TextView = itemView.tvSource
+        val tvTitle: TextView = itemView.tvTitle
+        val tvDescription: TextView = itemView.tvDescription
+        val tvPublishedAt: TextView = itemView.tvPublishedAt
 
     }
 
@@ -38,7 +37,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         }
     }
 
-    val differ = AsyncListDiffer(this, differCallBack)
+    private val differ = AsyncListDiffer(this, differCallBack)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
@@ -75,7 +74,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     private var onItemClickListener: ((Article) -> Unit)? = null
 
-    fun setOnItemClickListener(listner: (Article) -> Unit) {
+    private fun setOnItemClickListener(listner: (Article) -> Unit) {
         onItemClickListener = listner
     }
 }
