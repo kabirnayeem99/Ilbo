@@ -1,6 +1,6 @@
 package io.github.kabirnayeem99.ilbo.api
 
-import io.github.kabirnayeem99.ilbo.constants.Constants.Companion.BASE_URL
+import io.github.kabirnayeem99.ilbo.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

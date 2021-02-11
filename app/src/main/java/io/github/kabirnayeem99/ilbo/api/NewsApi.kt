@@ -1,6 +1,6 @@
 package io.github.kabirnayeem99.ilbo.api
 
-import io.github.kabirnayeem99.ilbo.constants.Constants
+import io.github.kabirnayeem99.ilbo.utils.Constants
 import io.github.kabirnayeem99.ilbo.models.NewsResponse
 import retrofit2.Response
 import retrofit2.http.GET
