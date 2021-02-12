@@ -32,17 +32,9 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             when (resourceResponse) {
                 is Resource.Success -> {
                     hideProgressBar()
-                    Log.d(
-                        TAG,
-                        "onViewCreated: Successful with data fetch\n" + resourceResponse.data.toString()
-                    )
                     resourceResponse.data?.let { newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles)
-
                     }
-                }
-                is Resource.Loading -> {
-                    showProgressBar()
                 }
 
                 is Resource.Error -> {
@@ -50,6 +42,10 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                     resourceResponse.message?.let { errorMessage ->
                         Log.e(TAG, errorMessage)
                     }
+                }
+
+                is Resource.Loading -> {
+                    showProgressBar()
                 }
             }
         })
@@ -67,6 +63,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         newsAdapter = NewsAdapter()
 
         rvBreakingNews.apply {
+            Log.d(TAG, "setUpRecyclerView: recycler view has been started")
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
