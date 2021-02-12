@@ -15,8 +15,7 @@ import io.github.kabirnayeem99.ilbo.models.Article
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
-    lateinit var context: Context
+class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivArticleImage: ImageView = itemView.ivArticleImage
@@ -52,8 +51,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[0]
 
-        article.apply {
-            Glide.with(context)
+        holder.itemView.apply {
+            Glide.with(this)
                 .load(article.urlToImage)
                 .into(holder.ivArticleImage)
 

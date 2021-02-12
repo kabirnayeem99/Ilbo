@@ -32,6 +32,10 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             when (resourceResponse) {
                 is Resource.Success -> {
                     hideProgressBar()
+                    Log.d(
+                        TAG,
+                        "onViewCreated: Successful with data fetch\n" + resourceResponse.data.toString()
+                    )
                     resourceResponse.data?.let { newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles)
 
