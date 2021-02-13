@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-     lateinit var newsViewModel: NewsViewModel
+    lateinit var newsViewModel: NewsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,5 +26,6 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider(this, newsViewModelProviderFactory).get(NewsViewModel::class.java)
 
         bottomNavigationView.setupWithNavController(ilboNavHostFragment.findNavController())
+
     }
 }

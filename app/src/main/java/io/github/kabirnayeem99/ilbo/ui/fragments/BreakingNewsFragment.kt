@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.kabirnayeem99.ilbo.R
 import io.github.kabirnayeem99.ilbo.adapter.NewsAdapter
@@ -20,7 +19,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     }
 
     private lateinit var newsViewModel: NewsViewModel
-    lateinit var newsAdapter: NewsAdapter
+    private lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,7 +27,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
         setUpRecyclerView()
 
-        newsViewModel.breakingNews.observe(viewLifecycleOwner, Observer { resourceResponse ->
+        newsViewModel.breakingNews.observe(viewLifecycleOwner, { resourceResponse ->
             when (resourceResponse) {
                 is Resource.Success -> {
                     hideProgressBar()

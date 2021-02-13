@@ -15,6 +15,8 @@ class NewsViewModel(
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var breakingNewsPage = 1
+    val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var searchNewsPage = 1
 
     init {
         getBreakingNews("us")
@@ -25,11 +27,19 @@ class NewsViewModel(
         // Creates a Mutable Breaking News LiveData with no value assigned to it.
         // Or in other words, creates a loading state
         breakingNews.postValue(Resource.Loading()) // Loading state
-        var response = newsRepository.getBreakingNews(countryCode, breakingNewsPage)
+        val response = newsRepository.getBreakingNews(countryCode, breakingNewsPage)
 
         breakingNews.postValue(handleBreakingNewsResponse(response)) // Success or error state
 
+    }
 
+    fun searchForNews(searchQuery: String) = viewModelScope.launch {
+
+        searchNews.postValue(Resource.Loading())
+
+        val response = newsRepository.searchForNews(searchQuery, searchNewsPage)
+
+        searchNews.postValue(handleSearchForNewsResponse(response))
     }
 
     /**
@@ -37,6 +47,16 @@ class NewsViewModel(
      * If it is failed it returns Resource.Error state with error message
      */
     private fun handleBreakingNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+
+        return Resource.Error(response.message())
+    }
+
+    private fun handleSearchForNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Resource.Success(resultResponse)
