@@ -3,4 +3,11 @@
     <string name="desc_breaking_news">Breaking</string>
     <string name="desc_saved_news">Saved</string>
     <string name="desc_search_news">Search</string>
+    <string name="content_desc_fab">Add to Favorite</string>
+    <string name="content_desc_article_img">Article Image</string>
+    <string name="action_search">Search...</string>
+    <string name="source">SOURCE</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="published_at">PUBLISHED AT</string>
 </resources>

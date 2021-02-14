@@ -2,8 +2,6 @@ package io.github.kabirnayeem99.ilbo.repositories
 
 import io.github.kabirnayeem99.ilbo.api.RetrofitInstance
 import io.github.kabirnayeem99.ilbo.db.ArticleDatabase
-import io.github.kabirnayeem99.ilbo.utils.Constants
-import retrofit2.http.Query
 
 class NewsRepository(
     val db: ArticleDatabase

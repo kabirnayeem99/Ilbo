@@ -10,19 +10,19 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(
-    val newsRepository: NewsRepository
+    private val newsRepository: NewsRepository
 ) : ViewModel() {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var breakingNewsPage = 1
+    private var breakingNewsPage = 1
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var searchNewsPage = 1
+    private var searchNewsPage = 1
 
     init {
         getBreakingNews("us")
     }
 
-    fun getBreakingNews(countryCode: String) = viewModelScope.launch {
+    private fun getBreakingNews(countryCode: String) = viewModelScope.launch {
 
         // Creates a Mutable Breaking News LiveData with no value assigned to it.
         // Or in other words, creates a loading state

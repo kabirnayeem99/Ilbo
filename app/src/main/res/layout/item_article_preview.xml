@@ -10,6 +10,7 @@
         android:id="@+id/ivArticleImage"
         android:layout_width="160dp"
         android:layout_height="90dp"
+        android:contentDescription="@string/content_desc_article_img"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="SOURCE"
+        android:text="@string/source"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivArticleImage" />
 
@@ -30,7 +31,7 @@
         android:layout_marginStart="8dp"
         android:ellipsize="end"
         android:maxLines="3"
-        android:text="TITLE"
+        android:text="@string/title"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/ivArticleImage"
@@ -45,7 +46,7 @@
         android:layout_marginTop="16dp"
         android:ellipsize="end"
         android:maxLines="5"
-        android:text="DESCRIPTION"
+        android:text="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivArticleImage"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -55,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="PUBLISHED AT"
+        android:text="@string/published_at"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSource" />
 

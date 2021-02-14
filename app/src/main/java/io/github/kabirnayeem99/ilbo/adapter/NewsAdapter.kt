@@ -1,6 +1,5 @@
 package io.github.kabirnayeem99.ilbo.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +14,9 @@ import io.github.kabirnayeem99.ilbo.models.Article
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 
-class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
-    inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivArticleImage: ImageView = itemView.ivArticleImage
-        val tvSource: TextView = itemView.tvSource
-        val tvTitle: TextView = itemView.tvTitle
-        val tvDescription: TextView = itemView.tvDescription
-        val tvPublishedAt: TextView = itemView.tvPublishedAt
-
-    }
+    inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private var differCallBack = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
