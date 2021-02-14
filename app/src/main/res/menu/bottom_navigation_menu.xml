@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/icBreakingNews"
         android:icon="@drawable/ic_breaking_news"
         android:title="@string/desc_breaking_news" />
 
     <item
+        android:id="@+id/icFavorite"
         android:icon="@drawable/ic_favorite"
         android:title="@string/desc_saved_news" />
 
     <item
+        android:id="@+id/icSearchNews"
         android:icon="@drawable/ic_search_news"
         android:title="@string/desc_search_news" />
 </menu>
