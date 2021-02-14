@@ -1,11 +1,9 @@
 package io.github.kabirnayeem99.ilbo.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import io.github.kabirnayeem99.ilbo.R
 import io.github.kabirnayeem99.ilbo.db.ArticleDatabase
 import io.github.kabirnayeem99.ilbo.repositories.NewsRepository
@@ -25,7 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         setUpBottomNavBar()
 
+        setUpViewModel()
+    }
 
+    private fun setUpViewModel() {
         val newsRepository = NewsRepository(ArticleDatabase(this))
         val newsViewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
 
